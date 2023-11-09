@@ -6,13 +6,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet"
 	th:href="@{css/bootstrap.min.css}" />
-<link id="darkmodeStylesheet" rel="stylesheet" th:href="@{/darkmode.css}" disabled />
+<link id="darkmodeStylesheet" rel="stylesheet"
+	th:href="@{/darkmode.css}" disabled />
 
 <style>
 .container {
 	text-align: center;
 	margin-top: 20px;
 }
+
+.add-shift {
+    text-align: left;
+    margin-bottom: 10px; /* Adjust as needed for spacing */
+}
+
 
 .table-container {
 	width: 100%;
@@ -28,18 +35,17 @@
 	padding: 8px;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
+	background-color: #fff; /* Set all rows to white */
 }
 
 .custom-table th {
 	background-color: #f2f2f2;
-}
-
-.custom-table tbody tr:nth-child(even) {
-	background-color: #f9f9f9;
+	/* Keep the header a light grey for contrast */
 }
 
 .custom-table tbody tr:hover {
 	background-color: #f5f5f5;
+	/* A slightly different white for hover effect */
 }
 
 .btn {
@@ -55,6 +61,10 @@
 	cursor: pointer;
 	border: 1px solid transparent;
 	border-radius: 4px;
+}
+
+.logout {
+	text-align: right;
 }
 
 .btn-primary {
@@ -75,21 +85,32 @@
 	border-color: rgb(0, 128, 0);
 }
 </style>
+
 </head>
 <body>
+<h1>Shift List</h1>
 	<div class="container">
-	<div class="dark-mode-toggle">
-        <label class="switch">
-            <input type="checkbox" onchange="toggleDarkMode(this.checked)" />
-            <span class="slider round"></span>
-        </label>
-        <span>Dark Mode</span>
-    </div>
-		<h1>Shift List</h1>
+		<div class="dark-mode-toggle">
+			<label class="switch"> 
+			<input type="checkbox"
+				onchange="toggleDarkMode(this.checked)" /> <span
+				class="slider round"></span>
+			</label> <span>Dark Mode</span>
+		</div>
+		<div class="logout">
+			<form th:action="@{/logout}" method="post" class="d-inline">
+				<input type="submit" value="Sign Out"
+					class="btn btn-sm btn-outline-danger ms-2" />
+			</form>
+		</div>
+
 		<div>
 			<span>Welcome <b sec:authentication="name"></b>!
 			</span>
 		</div>
+		<div sec:authorize="hasAuthority('ADMIN')" class="add-shift">
+		<a href="/add" class="btn btn-addbtn">Add New Shift</a>
+	</div>
 		<div class="table-container">
 			<table class="custom-table">
 				<thead>
@@ -124,15 +145,6 @@
 			</table>
 		</div>
 	</div>
-	<div sec:authorize="hasAuthority('ADMIN')" class="mb-3">
-		<a href="/add" class="btn btn-addbtn">Add New Shift</a>
-	</div>
-	<div>
-		<form th:action="@{/logout}" method="post" class="d-inline">
-			<input type="submit" value="Sign Out"
-				class="btn btn-sm btn-outline-danger ms-2" />
-		</form>
-	</div>
 	<script>
     function toggleDarkMode(checked) {
         var darkModeStylesheet = document.getElementById('darkmodeStylesheet');
@@ -143,6 +155,5 @@
         }
     }
 </script>
-
 </body>
 </html>

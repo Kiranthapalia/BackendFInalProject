@@ -28,6 +28,7 @@ public class FinalProjectApplication {
 	public CommandLineRunner demo(ShiftRepository srepository, DepartmentRepository drepository,
 			AppUserRepository urepository) {
 		return (args) -> {
+			/*
 			log.info("save a couple of departments and shifts");
 			drepository.save(new Department("Sales"));
 			drepository.save(new Department("Accounting"));
@@ -64,7 +65,7 @@ public class FinalProjectApplication {
 			log.info("fetch all students");
 			for (Shift shift : srepository.findAll()) {
 				log.info(shift.toString());
-			}
+			}*/
 		};
 	}
 }
