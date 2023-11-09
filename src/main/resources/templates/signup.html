@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add student</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+	 <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #f7f7f7;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+
+            .login-container {
+                width: 100%;
+                max-width: 400px;
+                padding: 20px;
+                margin: auto;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .alert {
+                text-align: center;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+
+            .form-control {
+                margin-bottom: 20px;
+                border-radius: 5px;
+                border: 1px solid #ced4da;
+                height: 40px;
+            }
+
+            .form-group {
+                text-align: left;
+            }
+
+            .btn-primary {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #0056b3;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background-color: #003d82;
+            }
+
+            .signup-link {
+                display: block;
+                text-align: center;
+                margin-top: 10px;
+                color: #0056b3;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .signup-link:hover {
+                color: #003d82;
+            }
+        </style>
+</head>
+<body>
+<div class="container">
+	<h1>Sign-up</h1>
+     <div class="col-md-4">
+		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
+			<div>
+				<label> Username :<input type="text" th:field="*{username}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+			</div>
+			<div>
+				<label> Password :<input type="password" th:field="*{password}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+			</div>
+			<div>
+				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+			</div>
+			
+			<input type="submit" class="btn btn-primary" value="Signup"></input>		
+		</form>
+		<a href="/shiftlist" class="btn btn-default">Cancel</a>
+	</div>
+</div>
+</body>
+</html>

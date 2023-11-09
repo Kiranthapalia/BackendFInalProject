@@ -1,0 +1,38 @@
+/* dark-mode.css */
+
+body {
+  background-color: #393643;
+  color: #325ccd;
+}
+
+/* Example styles for specific elements */
+h1 {
+  color: #ffffff;
+}
+
+p {
+  color: #325ccd;
+}
+
+
+
+/* Example styles for specific classes */
+.dark-mode-container {
+  background-color: #0080ff;
+  color: #0000ff;
+}
+
+.dark-mode-text {
+  color: #ff0000;
+}
+
+/* Example styles for specific IDs */
+#header {
+  background-color: #ff0000;
+  color: #ff0000;
+}
+
+#footer {
+  background-color: #333333;
+  color: #ffffff;
+}
