@@ -5,73 +5,77 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 	 <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: #f7f7f7;
-                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            }
+html, body {
+	height: 100%;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f7f7f7;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
-            .login-container {
-                width: 100%;
-                max-width: 400px;
-                padding: 20px;
-                margin: auto;
-                background: white;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            }
+.login-container {
+	width: 100%;
+	max-width: 400px;
+	padding: 20px;
+	margin: auto;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-            .alert {
-                text-align: center;
-                border-radius: 5px;
-                margin-bottom: 20px;
-            }
+.alert {
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
 
-            .form-control {
-                margin-bottom: 20px;
-                border-radius: 5px;
-                border: 1px solid #ced4da;
-                height: 40px;
-            }
+.form-control {
+	margin-bottom: 20px;
+	border-radius: 5px;
+	border: 1px solid #ced4da;
+	height: 40px;
+}
 
-            .form-group {
-                text-align: left;
-            }
+.text-center {
+	text-align: center;
+}
 
-            .btn-primary {
-                width: 100%;
-                padding: 10px;
-                border-radius: 5px;
-                border: none;
-                background-color: #0056b3;
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-                margin-top: 10px;
-                transition: background-color 0.3s ease;
-            }
+.form-group {
+	text-align: left;
+}
 
-            .btn-primary:hover {
-                background-color: #003d82;
-            }
+.btn-primary {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: rgb(0, 0, 0);
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 10px;
+	transition: background-color 0.3s ease;
+}
 
-            .signup-link {
-                display: block;
-                text-align: center;
-                margin-top: 10px;
-                color: #0056b3;
-                text-decoration: none;
-                transition: color 0.3s ease;
-            }
+.btn-primary:hover {
+	background-color: #003d82;
+}
 
-            .signup-link:hover {
-                color: #003d82;
-            }
-        </style>
+.signup-link {
+	display: block;
+	text-align: center;
+	margin-top: 10px;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+	color: #003d82;
+}
+</style>
 </head>
 <body>
 <div class="container">
@@ -93,6 +97,7 @@
 			
 			<input type="submit" class="btn btn-primary" value="Signup"></input>		
 		</form>
+		<br>
 		<a href="/shiftlist" class="btn btn-default">Already have an account? Sign in</a>
 	</div>
 </div>

@@ -16,10 +16,9 @@
 }
 
 .add-shift {
-    text-align: left;
-    margin-bottom: 10px; /* Adjust as needed for spacing */
+	text-align: left;
+	margin-bottom: 10px; /* Adjust as needed for spacing */
 }
-
 
 .table-container {
 	width: 100%;
@@ -65,6 +64,7 @@
 
 .logout {
 	text-align: right;
+	margin-bottom: 10px; 
 }
 
 .btn-primary {
@@ -88,29 +88,27 @@
 
 </head>
 <body>
-<h1>Shift List</h1>
+	<div>
+		<span>Welcome <b sec:authentication="name"></b>!
+		</span>
+	</div>
 	<div class="container">
+	<h1>Shift List</h1>
 		<div class="dark-mode-toggle">
-			<label class="switch"> 
-			<input type="checkbox"
+			<label class="switch"> <input type="checkbox"
 				onchange="toggleDarkMode(this.checked)" /> <span
 				class="slider round"></span>
 			</label> <span>Dark Mode</span>
 		</div>
 		<div class="logout">
-			<form th:action="@{/logout}" method="post" class="d-inline">
+			<form th:action="@{/logout}" method="post" class="logout">
 				<input type="submit" value="Sign Out"
 					class="btn btn-sm btn-outline-danger ms-2" />
 			</form>
 		</div>
-
-		<div>
-			<span>Welcome <b sec:authentication="name"></b>!
-			</span>
-		</div>
 		<div sec:authorize="hasAuthority('ADMIN')" class="add-shift">
-		<a href="/add" class="btn btn-addbtn">Add New Shift</a>
-	</div>
+			<a href="/add" class="btn btn-addbtn">Add New Shift</a>
+		</div>
 		<div class="table-container">
 			<table class="custom-table">
 				<thead>
